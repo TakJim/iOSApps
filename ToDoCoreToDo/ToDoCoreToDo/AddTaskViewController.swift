@@ -12,6 +12,9 @@ class AddTaskViewController: UIViewController {
 
     // MARK: - Properties
     
+    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var task: Task?
+    
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var categorySegmentedControl: UISegmentedControl!
     
@@ -22,10 +25,24 @@ class AddTaskViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        //taskに値が代入されていたら、textFieldとsegmentedControlにそれを表示
+        if let task = task {
+            taskTextField.text = task.name
+            taskCategory = task.category!
+            switch task.category! {
+            case "TODO":
+                categorySegmentedControl.selectedSegmentIndex = 0
+            case "Shopping":
+                categorySegmentedControl.selectedSegmentIndex = 1
+            case "Assignment":
+                categorySegmentedControl.selectedSegmentIndex = 2
+            default:
+                categorySegmentedControl.selectedSegmentIndex = 0
+            }
+        }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -57,17 +74,29 @@ class AddTaskViewController: UIViewController {
             dismiss(animated: true, completion: nil)
             return
         }
+        // 受け取った値が空であれば、新しいTaskオブジェクトを作る
+        if task == nil {
+            task = Task(context: context)
+        }
+        //　受けとったオブジェクト、または先程新しく作成したオブジェクトそのタスクのnameとcategoryに入力データを代入する
+        if let task = task {
+            task.name = taskName
+            task.category = taskCategory
+        }
+        // 変更内容を保存する
+        
+        
         // context（データベースを扱うのに必要）を定義
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         // taskにTask（データベースのエンティティ）型オブジェクトを代入する．
         // このとき，Taskがサジェストされない（エラーになる）場合がある
         // 詳しい原因はわからないが，Runするか，すべてのファイルを保存してXcodeを再起動すると直るのでいろいろ試す．
-        let task = Task(context: context)
+        //let task = Task(context: context)
         
         // 先ほど定義したTask型データのname, categoryプロパティに入力，選択したデータを代入
-        task.name = taskName
-        task.category = taskCategory
+        //task.name = taskName
+        //#task.category = taskCategory
         
         // 上で作成したデータをデータベースに保存します
         (UIApplication.shared.delegate as! AppDelegate).saveContext()

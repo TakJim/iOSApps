@@ -17,6 +17,7 @@
 		7D766F2220FB48DB00F48A7D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D766F2120FB48DB00F48A7D /* Images.xcassets */; };
 		7D766F2420FB48EF00F48A7D /* plusButton.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 7D766F2320FB48EE00F48A7D /* plusButton.pdf */; };
 		7D766F2620FB69D400F48A7D /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D766F2520FB69D400F48A7D /* AddTaskViewController.swift */; };
+		7DEF69F320FD827400B9E7A8 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEF69F220FD827400B9E7A8 /* TaskTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		7D766F2120FB48DB00F48A7D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7D766F2320FB48EE00F48A7D /* plusButton.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = plusButton.pdf; sourceTree = "<group>"; };
 		7D766F2520FB69D400F48A7D /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		7DEF69F220FD827400B9E7A8 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				7D766EE820FB363200F48A7D /* AppDelegate.swift */,
 				7D766EEA20FB363200F48A7D /* ViewController.swift */,
 				7D766EEC20FB363200F48A7D /* Main.storyboard */,
+				7DEF69F220FD827400B9E7A8 /* TaskTableViewCell.swift */,
 				7D766F2520FB69D400F48A7D /* AddTaskViewController.swift */,
 				7D766EF420FB363400F48A7D /* LaunchScreen.storyboard */,
 				7D766EF720FB363400F48A7D /* Info.plist */,
@@ -268,6 +271,7 @@
 			files = (
 				7D766EEB20FB363200F48A7D /* ViewController.swift in Sources */,
 				7D766F2620FB69D400F48A7D /* AddTaskViewController.swift in Sources */,
+				7DEF69F320FD827400B9E7A8 /* TaskTableViewCell.swift in Sources */,
 				7D766EF120FB363200F48A7D /* ToDoCoreToDo.xcdatamodeld in Sources */,
 				7D766EE920FB363200F48A7D /* AppDelegate.swift in Sources */,
 			);
